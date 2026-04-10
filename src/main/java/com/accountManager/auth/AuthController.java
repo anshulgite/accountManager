@@ -49,6 +49,7 @@ public class AuthController {
     @PostMapping("/register")
     public ApiResponse<UserEntity> saveUser(@RequestBody UserEntity user) {
         try {
+            user.setUserRole("ROLE_USER");
             UserEntity userEntity = userService.saveUser(user);
             return ApiResponse.success(userEntity, "User saved successfully");
         }catch (Exception e)
