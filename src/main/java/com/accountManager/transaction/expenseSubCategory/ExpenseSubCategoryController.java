@@ -3,6 +3,7 @@ package com.accountManager.transaction.expenseSubCategory;
 import com.accountManager.common.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,9 +30,9 @@ public class ExpenseSubCategoryController {
     }
 
     @GetMapping("/{id}")
-    public ApiResponse<ExpenseSubCategory> getExpenseSubCategoryById(@PathVariable Long id) {
+    public ApiResponse<ExpenseSubCategory> getExpenseSubCategoryById(Authentication authentication, @PathVariable Long id) {
         try {
-            ExpenseSubCategory expenseSubCategory = expenseSubCategoryService.getExpenseSubCategoryById(id);
+            ExpenseSubCategory expenseSubCategory = expenseSubCategoryService.getExpenseSubCategoryById(id, authentication);
             if (expenseSubCategory != null) {
                 return ApiResponse.success(expenseSubCategory, "Expense sub-category found successfully");
             } else {
@@ -43,9 +44,9 @@ public class ExpenseSubCategoryController {
     }
 
     @GetMapping
-    public ApiResponse<List<ExpenseSubCategory>> getAllExpenseSubCategories() {
+    public ApiResponse<List<ExpenseSubCategory>> getAllExpenseSubCategories(Authentication authentication) {
         try {
-            List<ExpenseSubCategory> expenseSubCategories = expenseSubCategoryService.getAllExpenseSubCategories();
+            List<ExpenseSubCategory> expenseSubCategories = expenseSubCategoryService.getAllExpenseSubCategories(authentication);
             return ApiResponse.success(expenseSubCategories, "Expense sub-categories retrieved successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -53,9 +54,9 @@ public class ExpenseSubCategoryController {
     }
 
     @PutMapping
-    public ApiResponse<ExpenseSubCategory> updateExpenseSubCategory(@RequestBody ExpenseSubCategory expenseSubCategory) {
+    public ApiResponse<ExpenseSubCategory> updateExpenseSubCategory(Authentication authentication, @RequestBody ExpenseSubCategory expenseSubCategory) {
         try {
-            ExpenseSubCategory updatedExpenseSubCategory = expenseSubCategoryService.updateExpenseSubCategory(expenseSubCategory);
+            ExpenseSubCategory updatedExpenseSubCategory = expenseSubCategoryService.updateExpenseSubCategory(authentication, expenseSubCategory);
             return ApiResponse.success(updatedExpenseSubCategory, "Expense sub-category updated successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -63,9 +64,9 @@ public class ExpenseSubCategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public ApiResponse<Void> deleteExpenseSubCategory(@PathVariable Long id) {
+    public ApiResponse<Void> deleteExpenseSubCategory(Authentication authentication, @PathVariable Long id) {
         try {
-            boolean deleted = expenseSubCategoryService.deleteExpenseSubCategory(id);
+            boolean deleted = expenseSubCategoryService.deleteExpenseSubCategory(id, authentication);
             if (deleted) {
                 return ApiResponse.success("Expense sub-category deleted successfully");
             } else {

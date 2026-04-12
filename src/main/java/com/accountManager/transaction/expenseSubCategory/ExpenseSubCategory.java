@@ -25,6 +25,9 @@ public class ExpenseSubCategory {
     private String expenseSubCategoryName;
 
     private Long expensesCategoryId;
+    
+    @Column(name = "user_id")
+    private Long userId;
 
     @CreationTimestamp
     @Column(updatable = false)

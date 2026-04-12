@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ExpensesCategory {
+public class        ExpensesCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,6 +23,9 @@ public class ExpensesCategory {
 
     @Column(name = "expenses_category_name")
     private String expensesCategoryName;
+
+    @Column(name = "user_id")
+    private Long userId;
 
     @CreationTimestamp
     @Column(updatable = false)

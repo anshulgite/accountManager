@@ -17,4 +17,19 @@ public class ExceptionMassage {
     public static final String CLOSING_BALANCE_CANNOT_BE_NEGATIVE = "Closing balance cannot be negative";
 
     public static final String UNAUTHORIZED = "Unauthorized";
+    public static final String INVALID_LOGIN = "invalid  user login";
+
+    //expenses
+
+    //expense category
+    public static final String EXPENSE_CATEGORY_NOT_FOUND = "Expense category not found";
+    public static final String EXPENSE_CATEGORY_NAME_ALREADY_EXISTS = "Expense category name already exists";
+    public static final String EXPENSE_CATEGORY_CANNOT_BE_NULL = "Expense category cannot be null";
+    public static final String EXPENSE_CATEGORY_NAME_IS_REQUIRED = "Expense category name is required";
+    public static final String EXPENSE_CATEGORY_ID_MUST_BE_POSITIVE = "Expense category ID must be positive";
+
+    //expense sub category
+
+
+
 }
