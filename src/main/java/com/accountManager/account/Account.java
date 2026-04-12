@@ -60,6 +60,10 @@ public class Account {
     @Column(name = "updated_by", nullable = false)
     private long updatedBy;
 
+    @Transient
+    private String accountType;
 
+    @Transient
+    private String accountSubType;
 
 }

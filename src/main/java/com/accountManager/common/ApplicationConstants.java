@@ -22,5 +22,6 @@ public class ApplicationConstants {
     public static final String BALANCE_CANNOT_BE_NEGATIVE = "Balance cannot be negative";
     public static final String OPENING_BALANCE_CANNOT_BE_NEGATIVE = "Opening balance cannot be negative";
     public static final String CLOSING_BALANCE_CANNOT_BE_NEGATIVE = "Closing balance cannot be negative";
-    
+
+    public static final String INVALID_ACCOUNT_DATA = "invalid account data ";
 }
