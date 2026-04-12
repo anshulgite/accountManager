@@ -1128,6 +1128,336 @@ collection:
             send: true
             store: true
           rebuildPath: true
+  - name: expense category
+    meta:
+      id: fld_expense_category_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828305
+      description: ""
+    children:
+      - url: localhost:8080/api/expenses-categories
+        name: create expense category
+        meta:
+          id: req_create_expense_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315935
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expensesCategoryName": "Food & Dining",
+              "userId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses-categories/1
+        name: get expense category by id
+        meta:
+          id: req_get_expense_category_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339911
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses-categories
+        name: get all expense categories
+        meta:
+          id: req_get_all_expense_categories
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222038
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses-categories
+        name: update expense category
+        meta:
+          id: req_update_expense_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315936
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expensesCategoryId": 1,
+              "expensesCategoryName": "Updated Food & Dining",
+              "userId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses-categories/1
+        name: delete expense category
+        meta:
+          id: req_delete_expense_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339912
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: expense sub category
+    meta:
+      id: fld_expense_sub_category_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828306
+      description: ""
+    children:
+      - url: localhost:8080/api/expense-sub-categories
+        name: create expense sub category
+        meta:
+          id: req_create_expense_sub_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315937
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expenseSubCategoryName": "Restaurants",
+              "expensesCategoryId": 1,
+              "userId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expense-sub-categories/1
+        name: get expense sub category by id
+        meta:
+          id: req_get_expense_sub_category_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339913
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expense-sub-categories
+        name: get all expense sub categories
+        meta:
+          id: req_get_all_expense_sub_categories
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222039
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expense-sub-categories
+        name: update expense sub category
+        meta:
+          id: req_update_expense_sub_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315938
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expenseSubCategoryId": 1,
+              "expenseSubCategoryName": "Updated Restaurants",
+              "expensesCategoryId": 1,
+              "userId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expense-sub-categories/1
+        name: delete expense sub category
+        meta:
+          id: req_delete_expense_sub_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339914
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
