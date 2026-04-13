@@ -39,6 +39,16 @@ public class Expense {
     @Column(name = "account")
     private Long accountId;
 
+    @Column(name = "expense_category", nullable = false)
+    private Long expenseCategoryId;
+
+    @Column(name = "payment_mode",nullable = false)
+    @Enumerated(EnumType.STRING)
+    private PaymentMode paymentMode;
+
+    @Column(name = "expense_sub_category")
+    private Long expenseSubCategoryId;
+
     @Column(name = "expense_type")
     private String expenseType;
 
@@ -56,9 +66,6 @@ public class Expense {
     private Long createdBy;
 
     private Long updatedBy;
-
-
-
 
 
 }

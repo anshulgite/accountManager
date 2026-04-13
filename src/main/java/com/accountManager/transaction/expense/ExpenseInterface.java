@@ -1,11 +1,18 @@
 package com.accountManager.transaction.expense;
 
+import org.springframework.security.core.Authentication;
 import java.util.List;
 
 public interface ExpenseInterface {
-    Expense saveExpense(Expense expense);
-    Expense getExpenseById(Long id);
-    List<Expense> getAllExpenses();
-    Expense updateExpense(Expense expense);
-    boolean deleteExpense(Long id);
+
+    public Expense createExpense(Expense expense);
+    
+    public List<Expense> getAllExpenses(Authentication authentication);
+    
+    public Expense getExpenseById(Long expenseId, Authentication authentication);
+    
+    public boolean deleteExpense(Long expenseId, Authentication authentication);
+    
+    public Expense updateExpense(Long expenseId, Expense expense, Authentication authentication);
+
 }
