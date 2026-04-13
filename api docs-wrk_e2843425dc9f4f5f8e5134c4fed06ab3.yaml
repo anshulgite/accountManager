@@ -1458,6 +1458,190 @@ collection:
             send: true
             store: true
           rebuildPath: true
+  - name: expense
+    meta:
+      id: fld_expense_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828305
+      description: ""
+    children:
+      - url: localhost:8080/api/expenses
+        name: create expense
+        meta:
+          id: req_create_expense
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315939
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expenseName": "Grocery Shopping",
+              "expenseAmount": 150.50,
+              "expenseDescription": "Weekly grocery purchase",
+              "expenseDate": "2024-01-15",
+              "expenseTime": "14:30",
+              "accountId": 1,
+              "expenseCategoryId": 1,
+              "paymentMode": "CREDIT_CARD",
+              "expenseSubCategoryId": 1,
+              "expenseType": "Regular",
+              "expenseStatus": "Completed"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses
+        name: get all expenses
+        meta:
+          id: req_get_all_expenses
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339915
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses/1
+        name: get expense by id
+        meta:
+          id: req_get_expense_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339916
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses/1
+        name: update expense
+        meta:
+          id: req_update_expense
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315940
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expenseName": "Updated Grocery Shopping",
+              "expenseAmount": 175.00,
+              "expenseDescription": "Updated weekly grocery purchase",
+              "expenseDate": "2024-01-15",
+              "expenseTime": "15:00",
+              "accountId": 1,
+              "expenseCategoryId": 1,
+              "paymentMode": "DEBIT_CARD",
+              "expenseSubCategoryId": 1,
+              "expenseType": "Regular",
+              "expenseStatus": "Completed"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses/1
+        name: delete expense
+        meta:
+          id: req_delete_expense
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339917
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
