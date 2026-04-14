@@ -10,5 +10,5 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long> {
     
    public List<Expense> findByCreatedBy(Long userId);
 
-   public Expense findByIdAndCreatedBy(Long expenseId, Long userId);
+   public Expense findByExpenseIdAndCreatedBy(Long expenseId, Long userId);
 }

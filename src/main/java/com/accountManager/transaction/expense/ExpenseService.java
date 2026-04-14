@@ -37,7 +37,7 @@ public class ExpenseService implements ExpenseInterface {
         assert user != null;
         Long userId = user.getUserId();
         //check if expense is created by user
-        Expense expense = expenseRepository.findByIdAndCreatedBy(expenseId, userId);
+        Expense expense = expenseRepository.findByExpenseIdAndCreatedBy(expenseId, userId);
         if (expense == null) {
             throw new IllegalArgumentException(ExceptionMassage.EXPENSE_NOT_FOUND);
         }
@@ -51,7 +51,7 @@ public class ExpenseService implements ExpenseInterface {
         assert user != null;
         Long userId = user.getUserId();
         //check if expense is created by user
-        Expense expense = expenseRepository.findByIdAndCreatedBy(expenseId, userId);
+        Expense expense = expenseRepository.findByExpenseIdAndCreatedBy(expenseId, userId);
         if (expense == null) {
             throw new IllegalArgumentException(ExceptionMassage.EXPENSE_NOT_FOUND);
         }
@@ -69,7 +69,7 @@ public class ExpenseService implements ExpenseInterface {
         validateExpense(expense);
         
         // Check if the expense exists and belongs to the user
-        Expense existingExpense = expenseRepository.findByIdAndCreatedBy(expenseId, userId);
+        Expense existingExpense = expenseRepository.findByExpenseIdAndCreatedBy(expenseId, userId);
         if (existingExpense == null) {
             throw new IllegalArgumentException(ExceptionMassage.EXPENSE_NOT_FOUND);
         }
