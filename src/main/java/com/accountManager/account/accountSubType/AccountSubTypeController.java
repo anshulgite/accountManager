@@ -2,12 +2,14 @@ package com.accountManager.account.accountSubType;
 
 import com.accountManager.common.ApiResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/account-sub-types")
+@PreAuthorize("hasRole('USER')")
 public class AccountSubTypeController {
 
     private final AccountSubTypeInterface accountSubTypeService;
