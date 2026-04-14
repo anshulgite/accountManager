@@ -1,0 +1,1482 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: api docs
+meta:
+  id: wrk_e2843425dc9f4f5f8e5134c4fed06ab3
+  created: 1775804971009
+  modified: 1775804971009
+  description: ""
+collection:
+  - name: auth
+    meta:
+      id: fld_9a37441de1664024ba1ebd0d487a08e4
+      created: 1775743438257
+      modified: 1775805079551
+      sortKey: -1775743438257
+      description: ""
+    children:
+      - url: localhost:8080/api/auth/login
+        name: login
+        meta:
+          id: req_c9c3f53f78d54f0f9218c17469c54185
+          created: 1775740047919
+          modified: 1775743482946
+          isPrivate: false
+          description: ""
+          sortKey: -1775743478027
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "username": "anshul",
+                "password": "securePassword1235"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/auth/refresh
+        name: refresh
+        meta:
+          id: req_57f7d8d7d2c249b7931cf1f379da4d87
+          created: 1775740159426
+          modified: 1775743484836
+          isPrivate: false
+          description: ""
+          sortKey: -1775743478127
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+                "refreshToken":"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU2NDYwNDYsImV4cCI6MTc3NjI1MDg0NiwidHlwZSI6InJlZnJlc2giLCJyb2xlIjoiUk9MRV9VU0VSIn0.KDy0cpXcvDBPApfcQZOx614nNjwxpc6bf0VvVpiEfkRMWxWoB4kL8iZ8FNfTiSqs"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/auth/logoutAll
+        name: logout all
+        meta:
+          id: req_653f414c81cb4c1b86b8b589a2b3591d
+          created: 1775740272827
+          modified: 1775743491191
+          isPrivate: false
+          description: ""
+          sortKey: -1775743478064.5
+        method: GET
+        body:
+          mimeType: application/json
+          text: >-
+            {
+                "refreshToken":"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU2MjgwNTMsImV4cCI6MTc3NjIzMjg1MywidHlwZSI6InJlZnJlc2giLCJyb2xlIjoiUk9MRV9VU0VSIn0.sZmbEVfjUeC-JJqS2aLK-ByMsqgSIV0cDnMDaqdGOaB723RHXhLQMbH1sI4OVZfS"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/auth/register
+        name: register
+        meta:
+          id: req_5d455f42b1974655a5ad8539e786aa26
+          created: 1775740335075
+          modified: 1775743477950
+          isPrivate: false
+          description: ""
+          sortKey: -1775743477927
+        method: GET
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "username": "anshul",
+              "password": "securePassword1235",
+              "email": "anshul@example.com",
+              "phone": "9876543210" 
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/users/test-login-and-user?test=gite
+        name: test login
+        meta:
+          id: req_005396a254744fcc980184a74ef425ff
+          created: 1775740368466
+          modified: 1775743487213
+          isPrivate: false
+          description: ""
+          sortKey: -1775743478077
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/auth/logout
+        name: logout
+        meta:
+          id: req_ca3ca748649c4ec4bff5a9947ddd95fe
+          created: 1775740442355
+          modified: 1775743488976
+          isPrivate: false
+          description: ""
+          sortKey: -1775743478052
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+                "refreshToken":"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU2MjgwNTMsImV4cCI6MTc3NjIzMjg1MywidHlwZSI6InJlZnJlc2giLCJyb2xlIjoiUk9MRV9VU0VSIn0.sZmbEVfjUeC-JJqS2aLK-ByMsqgSIV0cDnMDaqdGOaB723RHXhLQMbH1sI4OVZfS"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: user
+    meta:
+      id: fld_8a6861de417b4164aca5b18b9451dc00
+      created: 1775804922298
+      modified: 1775805072001
+      sortKey: -1775743828300.5
+      description: ""
+    children:
+      - url: localhost:8080/api/users/anshul
+        name: get User by username
+        meta:
+          id: req_004b77741a064d56b172ceee709ccb98
+          created: 1775804922298
+          modified: 1775804922298
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315926
+        method: GET
+        parameters:
+          - name: username
+            value: anshul
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/users
+        name: get all user
+        meta:
+          id: req_640c406e19224622adcbb8b282866310
+          created: 1775804922298
+          modified: 1775804922298
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339902
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/users/1
+        name: delete user
+        meta:
+          id: req_682233031880401ea091a21a9fbfbb86
+          created: 1775804922298
+          modified: 1775805046869
+          isPrivate: false
+          description: ""
+          sortKey: -1775744818336
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/users/id/1
+        name: get user by userId
+        meta:
+          id: req_86e5843851f44c4396f915bb9077d9b6
+          created: 1775804922298
+          modified: 1775805056138
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339802
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU4MDUwMjUsImV4cCI6MTc3NTgwODYyNSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.U3laHPBdCQKnccmdblr9M7YELftHbGUjiZ34YsAf7td9t5iivAsNspytIPzb7UOF
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/users
+        name: update user
+        meta:
+          id: req_e0d0a68def9440f99b368e17df56892f
+          created: 1775804922298
+          modified: 1775804922298
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222032
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"userId":1,
+              "username": "anshul",
+              "password": "securePassword1235",
+              "email": "anshul@example.com",
+              "phone": "9876543210" 
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: account
+    meta:
+      id: fld_account_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828301
+      description: ""
+    children:
+      - url: localhost:8080/api/accounts
+        name: create account
+        meta:
+          id: req_create_account
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315927
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "accountName": "Savings Account",
+              "accountTypeId": 1,
+              "accountSubTypeId": 1,
+              "userId": 1,
+              "balance": 5000.0,
+              "openingBalance": 5000.0,
+              "closingBalance": 5000.0,
+              "frequency": "monthly",
+              "isPaymentAccount": false,
+              "paymentAccountType": "",
+              "isActive": true,
+              "description": "Personal savings account"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/accounts/1
+        name: get account by id
+        meta:
+          id: req_get_account_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339903
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/accounts/name/Savings%20Account
+        name: get account by name
+        meta:
+          id: req_get_account_by_name
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339803
+        method: GET
+        parameters:
+          - name: accountName
+            value: "Savings Account"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/accounts
+        name: get all accounts
+        meta:
+          id: req_get_all_accounts
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222033
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/accounts
+        name: update account
+        meta:
+          id: req_update_account
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315928
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "accountId": 1,
+              "accountName": "Updated Savings Account",
+              "accountTypeId": 1,
+              "accountSubTypeId": 1,
+              "userId": 1,
+              "balance": 6000.0,
+              "openingBalance": 5000.0,
+              "closingBalance": 6000.0,
+              "frequency": "monthly",
+              "isPaymentAccount": false,
+              "paymentAccountType": "",
+              "isActive": true,
+              "description": "Updated personal savings account"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/accounts/1
+        name: delete account
+        meta:
+          id: req_delete_account
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339904
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: account type
+    meta:
+      id: fld_account_type_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828302
+      description: ""
+    children:
+      - url: localhost:8080/api/account-types
+        name: create account type
+        meta:
+          id: req_create_account_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315929
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "accountType": "Savings",
+              "nature": "Asset",
+              "description": "Savings account type"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-types/1
+        name: get account type by id
+        meta:
+          id: req_get_account_type_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339905
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-types/name/Savings
+        name: get account type by name
+        meta:
+          id: req_get_account_type_by_name
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339805
+        method: GET
+        parameters:
+          - name: accountType
+            value: "Savings"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-types
+        name: get all account types
+        meta:
+          id: req_get_all_account_types
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222034
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-types
+        name: update account type
+        meta:
+          id: req_update_account_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315930
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "accountTypeId": 1,
+              "accountType": "Updated Savings",
+              "nature": "Asset",
+              "description": "Updated savings account type"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-types/1
+        name: delete account type
+        meta:
+          id: req_delete_account_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339906
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: account sub type
+    meta:
+      id: fld_account_sub_type_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828303
+      description: ""
+    children:
+      - url: localhost:8080/api/account-sub-types
+        name: create account sub type
+        meta:
+          id: req_create_account_sub_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315931
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "accountTypeId": 1,
+              "accountSubType": "Personal Savings",
+              "nature": "Asset",
+              "description": "Personal savings account sub type"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-sub-types/1
+        name: get account sub type by id
+        meta:
+          id: req_get_account_sub_type_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339907
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-sub-types/name/Personal%20Savings
+        name: get account sub type by name
+        meta:
+          id: req_get_account_sub_type_by_name
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339807
+        method: GET
+        parameters:
+          - name: accountSubType
+            value: "Personal Savings"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-sub-types
+        name: get all account sub types
+        meta:
+          id: req_get_all_account_sub_types
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222035
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-sub-types/by-account-type/1
+        name: get account sub types by account type id
+        meta:
+          id: req_get_account_sub_types_by_account_type_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222036
+        method: GET
+        parameters:
+          - name: accountTypeId
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-sub-types
+        name: update account sub type
+        meta:
+          id: req_update_account_sub_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315932
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "accountSubTypeId": 1,
+              "accountTypeId": 1,
+              "accountSubType": "Updated Personal Savings",
+              "nature": "Asset",
+              "description": "Updated personal savings account sub type"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/account-sub-types/1
+        name: delete account sub type
+        meta:
+          id: req_delete_account_sub_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339908
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: transaction type
+    meta:
+      id: fld_transaction_type_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828304
+      description: ""
+    children:
+      - url: localhost:8080/api/transaction-types
+        name: create transaction type
+        meta:
+          id: req_create_transaction_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315933
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "transactionType": "Deposit",
+              "nature": "Credit",
+              "description": "Deposit transaction type"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/transaction-types/1
+        name: get transaction type by id
+        meta:
+          id: req_get_transaction_type_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339909
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/transaction-types/name/Deposit
+        name: get transaction type by name
+        meta:
+          id: req_get_transaction_type_by_name
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339809
+        method: GET
+        parameters:
+          - name: transactionType
+            value: "Deposit"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/transaction-types
+        name: get all transaction types
+        meta:
+          id: req_get_all_transaction_types
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222037
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/transaction-types
+        name: update transaction type
+        meta:
+          id: req_update_transaction_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315934
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "transactionTypeId": 1,
+              "transactionType": "Updated Deposit",
+              "nature": "Credit",
+              "description": "Updated deposit transaction type"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/transaction-types/1
+        name: delete transaction type
+        meta:
+          id: req_delete_transaction_type
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339910
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: expense category
+    meta:
+      id: fld_expense_category_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828305
+      description: ""
+    children:
+      - url: localhost:8080/api/expenses-categories
+        name: create expense category
+        meta:
+          id: req_create_expense_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315935
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expensesCategoryName": "Food & Dining",
+              "userId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses-categories/1
+        name: get expense category by id
+        meta:
+          id: req_get_expense_category_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339911
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses-categories
+        name: get all expense categories
+        meta:
+          id: req_get_all_expense_categories
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222038
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses-categories
+        name: update expense category
+        meta:
+          id: req_update_expense_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315936
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expensesCategoryId": 1,
+              "expensesCategoryName": "Updated Food & Dining",
+              "userId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expenses-categories/1
+        name: delete expense category
+        meta:
+          id: req_delete_expense_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339912
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: expense sub category
+    meta:
+      id: fld_expense_sub_category_package
+      created: 1775804971009
+      modified: 1775804971009
+      sortKey: -1775743828306
+      description: ""
+    children:
+      - url: localhost:8080/api/expense-sub-categories
+        name: create expense sub category
+        meta:
+          id: req_create_expense_sub_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315937
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expenseSubCategoryName": "Restaurants",
+              "expensesCategoryId": 1,
+              "userId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expense-sub-categories/1
+        name: get expense sub category by id
+        meta:
+          id: req_get_expense_sub_category_by_id
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339913
+        method: GET
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expense-sub-categories
+        name: get all expense sub categories
+        meta:
+          id: req_get_all_expense_sub_categories
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744222039
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expense-sub-categories
+        name: update expense sub category
+        meta:
+          id: req_update_expense_sub_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744315938
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |
+            {
+              "expenseSubCategoryId": 1,
+              "expenseSubCategoryName": "Updated Restaurants",
+              "expensesCategoryId": 1,
+              "userId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: localhost:8080/api/expense-sub-categories/1
+        name: delete expense sub category
+        meta:
+          id: req_delete_expense_sub_category
+          created: 1775804971009
+          modified: 1775804971009
+          isPrivate: false
+          description: ""
+          sortKey: -1775744339914
+        method: DELETE
+        parameters:
+          - name: id
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbnNodWwiLCJpYXQiOjE3NzU3NDQ2MjksImV4cCI6MTc3NTc0ODIyOSwicm9sZSI6IlJPTEVfVVNFUiIsInVzZXJJZCI6MSwiZW1haWwiOiJhbnNodWxAZXhhbXBsZS5jb20ifQ.d15E8bl8Uhbsif6R1Osf45S9JnF5VYuYVpRDp3yBZrRRaLQpXi-vzrWMozMS-T1I
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a2135f2bbae845c4a5f713599aea32da
+    created: 1775740047911
+    modified: 1775744621040
+  cookies:
+    - id: fb2dcf4b-2e9d-41fb-955f-b3b3018aca23
+      key: JSESSIONID
+      value: C191B632616A716DC504A37404B867AD
+      domain: localhost
+      path: /
+      secure: false
+      httpOnly: true
+      hostOnly: true
+environments:
+  name: Base Environment
+  meta:
+    id: env_72f062f1b533461c91a7faaacc60891c
+    created: 1775740047910
+    modified: 1775740047910
+    isPrivate: false
