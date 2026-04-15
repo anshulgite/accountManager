@@ -20,13 +20,13 @@ public class ExpenseController {
     }
 
     @PostMapping
-    public ApiResponse<Expense> createExpense(@RequestBody Expense expense) {
+    public ApiResponse<Expense> createExpense(@RequestBody Expense expense,Authentication authentication) {
         try {
             log.info("Creating expense: {}", expense);
             if (expense == null) {
                 return ApiResponse.error("Expense data is required", HttpStatus.BAD_REQUEST);
             }
-            Expense savedExpense = expenseService.createExpense(expense);
+            Expense savedExpense = expenseService.createExpense(expense,authentication);
             return ApiResponse.success(savedExpense, "Expense created successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

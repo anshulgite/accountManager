@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
         response.put("error", "Internal Server Error");
         response.put("message", ex.getMessage());
         response.put("path", ex.getStackTrace()[0].getClassName());
-        
+        ex.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
         response.put("error", "Bad Request");
         response.put("message", ex.getMessage());
         response.put("path", ex.getStackTrace()[0].getClassName());
-        
+        ex.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
         response.put("error", "Invalid Argument");
         response.put("message", ex.getMessage());
         response.put("path", ex.getStackTrace()[0].getClassName());
-        
+        ex.printStackTrace();
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

@@ -1,6 +1,7 @@
 package com.accountManager.transaction.expenseCategory;
 
 import com.accountManager.auth.AuthorizationUtils;
+import com.accountManager.auth.refreshToken.CustomeUserDetails;
 import com.accountManager.common.Validators;
 import com.accountManager.exception.ExceptionMassage;
 import com.accountManager.user.UserEntity;
@@ -19,13 +20,18 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
     private ExpensesCategoryRepository expensesCategoryRepository;
 
     @Override
-    public ExpensesCategory saveExpensesCategory(ExpensesCategory expensesCategory) {
+    public ExpensesCategory saveExpensesCategory(ExpensesCategory expensesCategory,Authentication authentication) {
+        if(expensesCategory == null) {
+            throw new RuntimeException(ExceptionMassage.EXPENSE_CATEGORY_CANNOT_BE_NULL);
+        }
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
+        expensesCategory.setUserId(user.getUserId());
         return expensesCategoryRepository.save(expensesCategory);
     }
 
     @Override
     public ExpensesCategory getExpensesCategoryById(Long id, Authentication authentication) {
-        UserEntity user = (UserEntity) authentication.getPrincipal();
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
         if(user == null) {
            throw new RuntimeException(ExceptionMassage.INVALID_LOGIN);
         }
@@ -36,7 +42,7 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
 
     @Override
     public List<ExpensesCategory> getAllExpensesCategories(Authentication authentication) {
-        UserEntity user = (UserEntity) authentication.getPrincipal();
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
         if(user == null) {
             throw new RuntimeException(ExceptionMassage.INVALID_LOGIN);
         }

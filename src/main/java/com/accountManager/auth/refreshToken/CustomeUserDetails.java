@@ -42,7 +42,6 @@ public class CustomeUserDetails implements UserDetails {
     }
 
 
-    // बाकी default true रख सकते हो
     @Override public boolean isAccountNonExpired() { return true; }
     @Override public boolean isAccountNonLocked() { return true; }
     @Override public boolean isCredentialsNonExpired() { return true; }

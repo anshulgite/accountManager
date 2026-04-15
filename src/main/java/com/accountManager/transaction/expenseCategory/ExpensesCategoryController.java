@@ -21,9 +21,9 @@ public class ExpensesCategoryController {
     }
 
     @PostMapping
-    public ApiResponse<ExpensesCategory> createExpensesCategory(@RequestBody ExpensesCategory expensesCategory) {
+    public ApiResponse<ExpensesCategory> createExpensesCategory(@RequestBody ExpensesCategory expensesCategory,Authentication authentication) {
         try {
-            ExpensesCategory savedExpensesCategory = expensesCategoryService.saveExpensesCategory(expensesCategory);
+            ExpensesCategory savedExpensesCategory = expensesCategoryService.saveExpensesCategory(expensesCategory,authentication);
             return ApiResponse.success(savedExpensesCategory, "Expenses category created successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

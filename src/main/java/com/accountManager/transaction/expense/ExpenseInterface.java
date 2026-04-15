@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface ExpenseInterface {
 
-    public Expense createExpense(Expense expense);
+    public Expense createExpense(Expense expense, Authentication authentication);
     
     public List<Expense> getAllExpenses(Authentication authentication);
     

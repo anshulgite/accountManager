@@ -1,7 +1,7 @@
 package com.accountManager.transaction.expense;
 
+import com.accountManager.auth.refreshToken.CustomeUserDetails;
 import com.accountManager.exception.ExceptionMassage;
-import com.accountManager.user.UserEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +17,19 @@ public class ExpenseService implements ExpenseInterface {
     }
 
     @Override
-    public Expense createExpense(Expense expense) {
+    public Expense createExpense(Expense expense, Authentication authentication) {
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
+        assert user != null;
+        Long userId = user.getUserId();
+        expense.setCreatedBy(userId);
+        expense.setUpdatedBy(userId);
         validateExpense(expense);
         return expenseRepository.save(expense);
     }
 
     @Override
     public List<Expense> getAllExpenses(Authentication authentication) {
-        UserEntity user = (UserEntity) authentication.getPrincipal();
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
         assert user != null;
         Long userId = user.getUserId();
         //get all expense by userId
@@ -33,7 +38,7 @@ public class ExpenseService implements ExpenseInterface {
 
     @Override
     public Expense getExpenseById(Long expenseId, Authentication authentication) {
-        UserEntity user = (UserEntity) authentication.getPrincipal();
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
         assert user != null;
         Long userId = user.getUserId();
         //check if expense is created by user
@@ -47,7 +52,7 @@ public class ExpenseService implements ExpenseInterface {
     @Override
     public boolean deleteExpense(Long expenseId,Authentication authentication)
     {
-        UserEntity user = (UserEntity) authentication.getPrincipal();
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
         assert user != null;
         Long userId = user.getUserId();
         //check if expense is created by user
@@ -61,7 +66,7 @@ public class ExpenseService implements ExpenseInterface {
     
     @Override
     public Expense updateExpense(Long expenseId, Expense expense, Authentication authentication) {
-        UserEntity user = (UserEntity) authentication.getPrincipal();
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
         assert user != null;
         Long userId = user.getUserId();
         

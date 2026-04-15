@@ -20,9 +20,9 @@ public class ExpenseSubCategoryController {
     }
 
     @PostMapping
-    public ApiResponse<ExpenseSubCategory> createExpenseSubCategory(@RequestBody ExpenseSubCategory expenseSubCategory) {
+    public ApiResponse<ExpenseSubCategory> createExpenseSubCategory(@RequestBody ExpenseSubCategory expenseSubCategory,Authentication authentication) {
         try {
-            ExpenseSubCategory savedExpenseSubCategory = expenseSubCategoryService.saveExpenseSubCategory(expenseSubCategory);
+            ExpenseSubCategory savedExpenseSubCategory = expenseSubCategoryService.saveExpenseSubCategory(expenseSubCategory,authentication);
             return ApiResponse.success(savedExpenseSubCategory, "Expense sub-category created successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
