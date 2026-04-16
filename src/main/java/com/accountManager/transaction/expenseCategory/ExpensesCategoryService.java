@@ -50,7 +50,7 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
         Long userId = user.getUserId();
         //find all expenses categories by user id
         List<ExpensesCategory> expensesCategories= expensesCategoryRepository.findAllByUserId(userId);
-        return expensesCategoryRepository.findAll();
+        return expensesCategories;
     }
 
     @Override

@@ -8,6 +8,7 @@ public interface ExpenseSubCategoryInterface {
     ExpenseSubCategory saveExpenseSubCategory(ExpenseSubCategory expenseSubCategory,Authentication authentication);
     ExpenseSubCategory getExpenseSubCategoryById(Long id, Authentication authentication);
     List<ExpenseSubCategory> getAllExpenseSubCategories(Authentication authentication);
+    List<ExpenseSubCategory> getAllExpensesSubCategoryByCategoryId(Long id, Authentication authentication);
     ExpenseSubCategory updateExpenseSubCategory(Authentication authentication, ExpenseSubCategory expenseSubCategory);
     boolean deleteExpenseSubCategory(Long id, Authentication authentication);
 }

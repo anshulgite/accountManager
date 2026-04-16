@@ -53,6 +53,16 @@ public class ExpenseSubCategoryController {
         }
     }
 
+    @GetMapping("/category/{id}")
+    public ApiResponse<List<ExpenseSubCategory>> getAllExpensesSubCategoryByCategoryId(@PathVariable Long id, Authentication authentication) {
+        try {
+            List<ExpenseSubCategory> expenseSubCategories = expenseSubCategoryService.getAllExpensesSubCategoryByCategoryId(id, authentication);
+            return ApiResponse.success(expenseSubCategories, "Expense sub-categories retrieved successfully by category ID");
+        } catch (Exception e) {
+            return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @PutMapping
     public ApiResponse<ExpenseSubCategory> updateExpenseSubCategory(Authentication authentication, @RequestBody ExpenseSubCategory expenseSubCategory) {
         try {

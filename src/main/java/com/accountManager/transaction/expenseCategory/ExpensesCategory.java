@@ -27,6 +27,9 @@ public class        ExpensesCategory {
     @Column(name = "user_id")
     private Long userId;
 
+    @Column(name = "has_subcategory")
+    private Boolean hasSubcategory;
+
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;

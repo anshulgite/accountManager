@@ -49,6 +49,16 @@ public class ExpenseSubCategoryService implements ExpenseSubCategoryInterface {
     }
 
     @Override
+    public List<ExpenseSubCategory> getAllExpensesSubCategoryByCategoryId(Long categoryId, Authentication authentication) {
+        CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
+        if(user == null) {
+            throw new RuntimeException(ExceptionMassage.INVALID_LOGIN);
+        }
+        Long userId = user.getUserId();
+        return expenseSubCategoryRepository.findByExpenseCategoryIdAndUserId(categoryId, userId);
+    }
+
+    @Override
     public ExpenseSubCategory updateExpenseSubCategory(Authentication authentication, ExpenseSubCategory expenseSubCategory) {
         ExpenseSubCategory existingExpenseSubCategory = expenseSubCategoryRepository.findById(expenseSubCategory.getExpenseSubCategoryId())
                 .orElseThrow(() -> new RuntimeException("Expense sub-category not found"));

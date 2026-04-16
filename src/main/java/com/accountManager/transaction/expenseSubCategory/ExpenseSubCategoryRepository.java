@@ -13,4 +13,6 @@ public interface ExpenseSubCategoryRepository extends JpaRepository<ExpenseSubCa
 
     @Query("SELECT e FROM ExpenseSubCategory e WHERE e.userId = :userId")
     List<ExpenseSubCategory> findAllByUserId(Long userId);
+
+    List<ExpenseSubCategory> findByExpenseCategoryIdAndUserId(Long categoryId, Long userId);
 }
