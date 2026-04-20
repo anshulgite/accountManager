@@ -34,6 +34,7 @@ public class ExceptionMassage {
     public static final String EXPENSE_CATEGORY_CANNOT_BE_NULL = "Expense category cannot be null";
     public static final String EXPENSE_CATEGORY_NAME_IS_REQUIRED = "Expense category name is required";
     public static final String EXPENSE_CATEGORY_ID_MUST_BE_POSITIVE = "Expense category ID must be positive";
+    public static final String EVENT_AUDIT_CANNOT_BE_NULL = "event audit can not be null";
 
 
     //expense sub category
