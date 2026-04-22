@@ -79,7 +79,7 @@ public class ExpenseSubCategoryService implements ExpenseSubCategoryInterface {
             throw new RuntimeException(ExceptionMassage.INVALID_LOGIN);
         }
         Long userId = user.getUserId();
-        return expenseSubCategoryRepository.findByExpenseCategoryIdAndUserId(categoryId, userId);
+        return expenseSubCategoryRepository.findByExpensesCategoryIdAndUserId(categoryId, userId);
     }
 
     @Override
