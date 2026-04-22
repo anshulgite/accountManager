@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -20,9 +21,9 @@ public class ExpenseSubCategoryController {
     }
 
     @PostMapping
-    public ApiResponse<ExpenseSubCategory> createExpenseSubCategory(@RequestBody ExpenseSubCategory expenseSubCategory,Authentication authentication) {
+    public ApiResponse<ExpenseSubCategory> createExpenseSubCategory(@RequestBody ExpenseSubCategory expenseSubCategory,Authentication authentication, HttpServletRequest request) {
         try {
-            ExpenseSubCategory savedExpenseSubCategory = expenseSubCategoryService.saveExpenseSubCategory(expenseSubCategory,authentication);
+            ExpenseSubCategory savedExpenseSubCategory = expenseSubCategoryService.saveExpenseSubCategory(expenseSubCategory,authentication, request);
             return ApiResponse.success(savedExpenseSubCategory, "Expense sub-category created successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -64,9 +65,9 @@ public class ExpenseSubCategoryController {
     }
 
     @PutMapping
-    public ApiResponse<ExpenseSubCategory> updateExpenseSubCategory(Authentication authentication, @RequestBody ExpenseSubCategory expenseSubCategory) {
+    public ApiResponse<ExpenseSubCategory> updateExpenseSubCategory(Authentication authentication, @RequestBody ExpenseSubCategory expenseSubCategory, HttpServletRequest request) {
         try {
-            ExpenseSubCategory updatedExpenseSubCategory = expenseSubCategoryService.updateExpenseSubCategory(authentication, expenseSubCategory);
+            ExpenseSubCategory updatedExpenseSubCategory = expenseSubCategoryService.updateExpenseSubCategory(authentication, expenseSubCategory, request);
             return ApiResponse.success(updatedExpenseSubCategory, "Expense sub-category updated successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -74,9 +75,9 @@ public class ExpenseSubCategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public ApiResponse<Void> deleteExpenseSubCategory(Authentication authentication, @PathVariable Long id) {
+    public ApiResponse<Void> deleteExpenseSubCategory(Authentication authentication, @PathVariable Long id, HttpServletRequest request) {
         try {
-            boolean deleted = expenseSubCategoryService.deleteExpenseSubCategory(id, authentication);
+            boolean deleted = expenseSubCategoryService.deleteExpenseSubCategory(id, authentication, request);
             if (deleted) {
                 return ApiResponse.success("Expense sub-category deleted successfully");
             } else {

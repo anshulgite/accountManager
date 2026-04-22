@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -20,13 +21,13 @@ public class ExpenseController {
     }
 
     @PostMapping
-    public ApiResponse<Expense> createExpense(@RequestBody Expense expense,Authentication authentication) {
+    public ApiResponse<Expense> createExpense(@RequestBody Expense expense, Authentication authentication, HttpServletRequest request) {
         try {
             log.info("Creating expense: {}", expense);
             if (expense == null) {
                 return ApiResponse.error("Expense data is required", HttpStatus.BAD_REQUEST);
             }
-            Expense savedExpense = expenseService.createExpense(expense,authentication);
+            Expense savedExpense = expenseService.createExpense(expense, authentication, request);
             return ApiResponse.success(savedExpense, "Expense created successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -58,9 +59,9 @@ public class ExpenseController {
     }
 
     @PutMapping("/{id}")
-    public ApiResponse<Expense> updateExpense(@PathVariable Long id, @RequestBody Expense expense, Authentication authentication) {
+    public ApiResponse<Expense> updateExpense(@PathVariable Long id, @RequestBody Expense expense, Authentication authentication, HttpServletRequest request) {
         try {
-            Expense updatedExpense = expenseService.updateExpense(id, expense, authentication);
+            Expense updatedExpense = expenseService.updateExpense(id, expense, authentication, request);
             return ApiResponse.success(updatedExpense, "Expense updated successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -68,9 +69,9 @@ public class ExpenseController {
     }
 
     @DeleteMapping("/{id}")
-    public ApiResponse<Void> deleteExpense(@PathVariable Long id, Authentication authentication) {
+    public ApiResponse<Void> deleteExpense(@PathVariable Long id, Authentication authentication, HttpServletRequest request) {
         try {
-            boolean deleted = expenseService.deleteExpense(id, authentication);
+            boolean deleted = expenseService.deleteExpense(id, authentication, request);
             if (deleted) {
                 return ApiResponse.success("Expense deleted successfully");
             } else {

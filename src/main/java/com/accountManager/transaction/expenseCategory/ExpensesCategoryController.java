@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -21,9 +22,9 @@ public class ExpensesCategoryController {
     }
 
     @PostMapping
-    public ApiResponse<ExpensesCategory> createExpensesCategory(@RequestBody ExpensesCategory expensesCategory,Authentication authentication) {
+    public ApiResponse<ExpensesCategory> createExpensesCategory(@RequestBody ExpensesCategory expensesCategory,Authentication authentication, HttpServletRequest request) {
         try {
-            ExpensesCategory savedExpensesCategory = expensesCategoryService.saveExpensesCategory(expensesCategory,authentication);
+            ExpensesCategory savedExpensesCategory = expensesCategoryService.saveExpensesCategory(expensesCategory,authentication, request);
             return ApiResponse.success(savedExpensesCategory, "Expenses category created successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -55,9 +56,9 @@ public class ExpensesCategoryController {
     }
 
     @PutMapping
-    public ApiResponse<ExpensesCategory> updateExpensesCategory(Authentication authentication, @RequestBody ExpensesCategory expensesCategory) {
+    public ApiResponse<ExpensesCategory> updateExpensesCategory(Authentication authentication, @RequestBody ExpensesCategory expensesCategory, HttpServletRequest request) {
         try {
-            ExpensesCategory updatedExpensesCategory = expensesCategoryService.updateExpensesCategory(authentication, expensesCategory);
+            ExpensesCategory updatedExpensesCategory = expensesCategoryService.updateExpensesCategory(authentication, expensesCategory, request);
             return ApiResponse.success(updatedExpensesCategory, "Expenses category updated successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -65,9 +66,9 @@ public class ExpensesCategoryController {
     }
 
     @DeleteMapping("/{id}")
-    public ApiResponse<Void> deleteExpensesCategory(Authentication authentication, @PathVariable Long id) {
+    public ApiResponse<Void> deleteExpensesCategory(Authentication authentication, @PathVariable Long id, HttpServletRequest request) {
         try {
-            boolean deleted = expensesCategoryService.deleteExpensesCategory(id, authentication);
+            boolean deleted = expensesCategoryService.deleteExpensesCategory(id, authentication, request);
             if (deleted) {
                 return ApiResponse.success("Expenses category deleted successfully");
             } else {
