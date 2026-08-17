@@ -9,7 +9,9 @@ import com.accountManager.user.UserEntity;
 import com.accountManager.user.UserInterface;
 
 import io.jsonwebtoken.Claims;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,6 +26,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -37,12 +40,15 @@ public class AuthController {
 
     private final UserInterface userService;
 
+    private final RedisTemplate<String, String> redisTemplate;
+
     @Autowired
-    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil,RefreshTokenService refreshTokenService,UserInterface userService) {
+    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil,RefreshTokenService refreshTokenService,UserInterface userService,RedisTemplate<String, String> redisTemplate) {
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
         this.refreshTokenService=refreshTokenService;
         this.userService = userService;
+        this.redisTemplate =redisTemplate;
     }
 
 
@@ -124,33 +130,55 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
-    public String logout(@RequestBody Map<String, String> request) {
+    public String logout(@RequestBody Map<String, String> request, HttpServletRequest httpServerRequest) {
 
         String refreshToken = request.get("refreshToken");
         if(jwtUtil.validateRefreshToken(refreshToken)) {
-            RefreshToken rt = refreshTokenService.findByToken(refreshToken)
-                    .orElseThrow(() -> new RuntimeException("Token not found"));
+            try {
+                RefreshToken rt = refreshTokenService.findByToken(Encryption.hashToken(refreshToken))
+                        .orElseThrow(() -> new RuntimeException("Token not found"));
+                rt.setRevoked(true);
+                refreshTokenService.save(rt);
+            }catch (NoSuchAlgorithmException noSuchAlgorithmException){
+                throw new RuntimeException("no such algorithm");
+            }
 
-            rt.setRevoked(true);
-            refreshTokenService.save(rt);
         }
+        blackListAccessToken(httpServerRequest);
+
         return "Logged out successfully";
     }
 
-   @PostMapping("/logoutAll")
-    public String logoutAll(@RequestBody Map<String, String> request) {
+    @PostMapping("/logoutAll")
+    public String logoutAll(@RequestBody Map<String, String> request, HttpServletRequest httpServerRequest) {
 
        String refreshToken = request.get("refreshToken");
        if(jwtUtil.validateRefreshToken(refreshToken)) {
-           RefreshToken rt = refreshTokenService.findByToken(refreshToken)
+           try {
+           RefreshToken rt = refreshTokenService.findByToken(Encryption.hashToken(refreshToken))
                    .orElseThrow(() -> new RuntimeException("Token not found"));
-
            String username = jwtUtil.extractUsername(refreshToken);
            List<RefreshToken> byUsername = refreshTokenService.findByUsername(username);
            byUsername.forEach(token -> token.setRevoked(true));
            refreshTokenService.saveAll(byUsername);
+           }catch (NoSuchAlgorithmException noSuchAlgorithmException){
+               throw new RuntimeException("no such algorithm");
+           }
 
        }
+
+       blackListAccessToken(httpServerRequest);
+
        return "Logged out successfully";
    }
+
+    private void blackListAccessToken(HttpServletRequest httpServerRequest) {
+        String token = httpServerRequest.getHeader("Authorization").substring(7);
+        long remainingExpiry = jwtUtil.getRemainingExpiry(token);
+
+        redisTemplate.opsForValue().set( "blacklist:" + token,
+                "true",
+                remainingExpiry,
+                TimeUnit.MILLISECONDS);
+    }
 }

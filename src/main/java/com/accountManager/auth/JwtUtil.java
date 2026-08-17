@@ -104,4 +104,13 @@ public class JwtUtil {
                 .claim("role", role)
                 .compact();
     }
+
+    public long getRemainingExpiry(String token) {
+        Date expiration = extractExpiration(token);
+        return expiration.getTime() - System.currentTimeMillis();
+    }
+
+    private Date extractExpiration(String token) {
+        return getClaims(token).getExpiration();
+    }
 }
