@@ -1,8 +1,9 @@
 package com.accountManager.transaction.expenseCategory;
 
 import com.accountManager.common.ApiResponse;
-import com.accountManager.common.ApplicationConstants;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +23,9 @@ public class ExpensesCategoryController {
     }
 
     @PostMapping
-    public ApiResponse<ExpensesCategory> createExpensesCategory(@RequestBody ExpensesCategory expensesCategory,Authentication authentication, HttpServletRequest request) {
+    public ApiResponse<List<ExpensesCategory>> createExpensesCategory(@RequestBody ExpensesCategory expensesCategory,Authentication authentication, HttpServletRequest request) {
         try {
-            ExpensesCategory savedExpensesCategory = expensesCategoryService.saveExpensesCategory(expensesCategory,authentication, request);
+            List<ExpensesCategory> savedExpensesCategory = expensesCategoryService.saveExpensesCategory(expensesCategory,authentication, request);
             return ApiResponse.success(savedExpensesCategory, "Expenses category created successfully");
         } catch (Exception e) {
             return ApiResponse.error(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

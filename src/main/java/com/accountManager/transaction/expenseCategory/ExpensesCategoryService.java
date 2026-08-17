@@ -9,6 +9,9 @@ import com.accountManager.user.UserEntity;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +28,9 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
     private EventAuditService eventAuditService;
 
     @Override
-    public ExpensesCategory saveExpensesCategory(ExpensesCategory expensesCategory,Authentication authentication, HttpServletRequest request) {
+    //@CacheEvict(value = "expensesCategories", key = "#authentication.principal.userId") : it will delete the cache of
+    @CachePut(value = "expensesCategories", key = "#authentication.principal.userId")  // it will update the cache
+    public List<ExpensesCategory> saveExpensesCategory(ExpensesCategory expensesCategory,Authentication authentication, HttpServletRequest request) {
         if(expensesCategory == null) {
             throw new RuntimeException(ExceptionMassage.EXPENSE_CATEGORY_CANNOT_BE_NULL);
         }
@@ -34,7 +39,7 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
         expensesCategory.setUserId(userId);
         
         ExpensesCategory savedCategory = expensesCategoryRepository.save(expensesCategory);
-        
+        List<ExpensesCategory> expensesCategories = expensesCategoryRepository.findAllByUserId(userId);
         // Get IP address and user agent
         String ipAddress = getClientIpAddress(request);
         String userAgent = request.getHeader("User-Agent");
@@ -51,7 +56,7 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
             userAgent
         );
         
-        return savedCategory;
+        return expensesCategories;
     }
 
     @Override
@@ -66,6 +71,7 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
     }
 
     @Override
+    @Cacheable(value = "expensesCategories", key = "#authentication.principal.userId")
     public List<ExpensesCategory> getAllExpensesCategories(Authentication authentication) {
         CustomeUserDetails user = (CustomeUserDetails) authentication.getPrincipal();
         if(user == null) {
