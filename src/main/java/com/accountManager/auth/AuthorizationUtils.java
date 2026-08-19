@@ -9,6 +9,7 @@ public class AuthorizationUtils {
     public static void validateUserAccess(Authentication authentication, Long resourceUserId) {
         if (authentication != null && resourceUserId != null) {
             CustomeUserDetails customUserDetails = (CustomeUserDetails) authentication.getPrincipal();
+            assert customUserDetails != null;
             Long userId = customUserDetails.getUserId();
             if (!(resourceUserId.equals(userId))) {
                 throw new RuntimeException(ExceptionMassage.UNAUTHORIZED);

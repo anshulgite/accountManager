@@ -30,7 +30,7 @@ public class RateLimitConfig {
     public long getRemainingAttempts(String ipAddress){
         String key = "rate_limit:" + ipAddress;
         String countStr = redisTemplate.opsForValue().get(key);
-        Long count = countStr != null ? Long.parseLong(countStr) : 0L;
+        long count = countStr != null ? Long.parseLong(countStr) : 0L;
         return Math.max(maxRequests - count,0);
     }
 

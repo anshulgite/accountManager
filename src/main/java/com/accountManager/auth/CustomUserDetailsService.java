@@ -3,6 +3,7 @@ package com.accountManager.auth;
 import com.accountManager.user.UserEntity;
 import com.accountManager.user.UserRepository;
 import com.accountManager.auth.refreshToken.CustomeUserDetails;
+import org.jspecify.annotations.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,7 +18,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     private UserRepository userRepo;
 
     @Override
-    public CustomeUserDetails loadUserByUsername(String username) {
+    public CustomeUserDetails loadUserByUsername(@NonNull String username) {
 
         UserEntity user = userRepo.findByUsername(username);
 
