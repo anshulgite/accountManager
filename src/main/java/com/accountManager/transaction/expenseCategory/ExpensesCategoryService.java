@@ -5,6 +5,8 @@ import com.accountManager.auth.refreshToken.CustomeUserDetails;
 import com.accountManager.common.Validators;
 import com.accountManager.eventAudit.EventAuditService;
 import com.accountManager.exception.ExceptionMassage;
+import com.accountManager.notification.Notification;
+import com.accountManager.notification.NotificationPublisher;
 import com.accountManager.user.UserEntity;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.tomcat.util.http.parser.Authorization;
@@ -26,6 +28,9 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
     
     @Autowired
     private EventAuditService eventAuditService;
+
+    @Autowired
+    private NotificationPublisher notificationPublisher;
 
     @Override
     //@CacheEvict(value = "expensesCategories", key = "#authentication.principal.userId") : it will delete the cache of
@@ -55,7 +60,9 @@ public class ExpensesCategoryService implements ExpensesCategoryInterface {
             ipAddress, 
             userAgent
         );
-        
+
+        notificationPublisher.publish(new Notification(userId, "EXPENSE_CATEGORY", "New Expense Category Added : "+expensesCategory.getExpensesCategoryName()));
+
         return expensesCategories;
     }
 
